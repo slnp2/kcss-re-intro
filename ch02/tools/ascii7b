@@ -1,0 +1,27 @@
+#! /usr/bin/env python
+
+
+def encode(text):
+    bintext = "".join(
+        "{:07b}".format(b & 0x7F)
+        for b in bytearray(text)
+    )
+    return bytearray(
+        int(bintext[i * 8: (i + 1) * 8], 2)
+        for i in range((len(bintext) + 7) // 8)
+    )
+
+
+def decode(text):
+    bintext = "".join(
+        "{:08b}".format(b)
+        for b in bytearray(text)
+    )
+    return bytearray(
+        int(bintext[i * 7: (i + 1) * 7], 2)
+        for i in range((len(bintext) + 6) // 7)
+    )
+
+
+if __name__ == "__main__":
+    pass

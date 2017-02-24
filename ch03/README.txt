@@ -1,0 +1,1 @@
+Nothing is encrypted, everything is raw data.
